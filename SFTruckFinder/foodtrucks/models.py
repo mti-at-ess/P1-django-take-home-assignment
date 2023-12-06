@@ -2,7 +2,7 @@ from django.db import models
 from foodtrucks.enums import FoodTruckStatus
 
 
-class FoodTruck(models.Model):
+class FoodTruckModel(models.Model):
     location_id = models.IntegerField()
     applicant = models.CharField(max_length=100)
     facility_type = models.CharField(max_length=20)

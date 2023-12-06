@@ -1,6 +1,6 @@
 import csv
 from django.core.management.base import BaseCommand
-from foodtrucks.models import FoodTruck
+from foodtrucks.models import FoodTruckModel
 from datetime import datetime
 
 
@@ -19,7 +19,7 @@ class Command(BaseCommand):
             approved_date_format = "%m/%d/%Y %I:%M:%S %p"
             received_date_format = "%Y%m%d"
             for row in reader:
-                FoodTruck.objects.create(
+                FoodTruckModel.objects.create(
                     location_id=int(row["locationid"]),
                     applicant=row["Applicant"],
                     facility_type=row["FacilityType"],
