@@ -1,0 +1,36 @@
+from django.db import models
+from foodtrucks.enums import FoodTruckStatus
+
+
+class FoodTruck(models.Model):
+    location_id = models.IntegerField()
+    applicant = models.CharField(max_length=100)
+    facility_type = models.CharField(max_length=20)
+    cnn = models.IntegerField()
+    location_description = models.CharField(max_length=200)
+    address = models.CharField(max_length=50)
+    blocklot = models.CharField(max_length=10)
+    block = models.CharField(max_length=5)
+    lot = models.CharField(max_length=5)
+    permit = models.CharField(max_length=12)
+    status = models.CharField(max_length=40, choices=FoodTruckStatus.choices)
+    food_items = models.CharField(max_length=255)
+    x = models.FloatField(null=True)
+    y = models.FloatField(null=True)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    schedule = models.CharField(max_length=255)
+    dayshours = models.CharField(max_length=40, null=True)
+    noi_sent = models.CharField(max_length=100)
+    approved = models.DateTimeField(null=True)
+    received = models.DateField()
+    prior_permit = models.IntegerField()
+    expiration_date = models.DateTimeField(null=True)
+    location = models.CharField(max_length=75)
+    fire_prevention_districts = models.IntegerField(null=True)
+    police_districts = models.IntegerField(null=True)
+    supervisor_districts = models.IntegerField(null=True)
+    zip_codes = models.IntegerField(null=True)
+    neighborhoods_old = models.IntegerField(null=True)
+
+    objects = models.Manager()
